@@ -9,20 +9,20 @@ export class ExpenseService {
 
   constructor(private http:HttpClient) { }
   getCategories() {
-    return this.http.get("http://localhost:3000/categories");
+    return this.http.get("https://expense-tracker-api-rosy.vercel.app/categories");
   }
   createAhome(homeId: string): Observable<any> {
     let obj = {'homeId': homeId}
-    return this.http.post("http://localhost:3000/createHome", obj);
+    return this.http.post("https://expense-tracker-api-rosy.vercel.app/createHome", obj);
   }
   joinAhome(homeId: string): Observable<any> {
     let obj = {'homeId': homeId}
-    return this.http.post("http://localhost:3000/joinHome", obj);
+    return this.http.post("https://expense-tracker-api-rosy.vercel.app/joinHome", obj);
   }
   postExpense(expenseObj: object): Observable<any> {
-    return this.http.post("http://localhost:3000/saveExpense", expenseObj);
+    return this.http.post("https://expense-tracker-api-rosy.vercel.app/saveExpense", expenseObj);
   }
   getCatExpense(obj: object): Observable<any> {
-    return this.http.post("http://localhost:3000/getCatExpense", obj);
+    return this.http.post("https://expense-tracker-api-rosy.vercel.app/getCatExpense", obj);
   }
 }
