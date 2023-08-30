@@ -110,13 +110,11 @@ export class ExpenseDetailsComponent implements OnInit {
       }
       chartArr.sort((a,b)=>Date.parse(a.name)-Date.parse(b.name));
       // console.log(chartArr);
-      /*
-      for(let idx in chartArr) {
-        let obj = chartArr[idx];
-        obj.name = moment(obj.name).format('DD-MMM-YYYY');
-        chartArr[idx] = Object.assign({}, obj);
-      }
-      */
+      // for(let idx in chartArr) {
+      //   let obj = chartArr[idx];
+      //   obj.name = moment(obj.name).format('DD-MMM-YYYY');
+      //   chartArr[idx] = Object.assign({}, obj);
+      // }
       this.single = [...chartArr];
       // Object.assign(this, { chartArr })
       this.chartPrepared = true;
