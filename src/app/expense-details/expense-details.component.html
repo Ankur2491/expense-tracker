@@ -1,0 +1,53 @@
+<div class="text-sm breadcrumbs">
+    <ul>
+        <li><a href="/home">Home</a></li>
+        <li>{{category}}</li>
+        <li>Add/View Expense</li>
+    </ul>
+</div>
+<ul class="menu menu-horizontal lg:menu-horizontal bg-base-200 rounded-box">
+    <li><a (click)="add()" [ngClass]="addClicked==true?'active':''">Add</a></li>
+    <li><a (click)="viewChart()" [ngClass]="viewClicked==true?'active':''">View</a></li>
+</ul>
+<div *ngIf="addClicked" class="card w-85 bg-info-content shadow-xl">
+    <div class="card-body">
+        <!-- <ul class="menu menu-horizontal lg:menu-horizontal bg-base-200 rounded-box">
+                <li><a class="active">Add</a></li>
+                <li><a (click)="view()">View</a></li>
+              </ul> -->
+        <h2 class="card-title">Add expense for {{category}}</h2>
+        <select class="select select-bordered select-xs w-20 min-w-min" (change)="changeSubCat($event)">
+            <option disabled selected>Select a sub category</option>
+            <option *ngFor="let cat of subCategories" [value]="cat">{{cat}}</option>
+        </select>
+        <input type="text" placeholder="Name of expense" class="input input-xs w-20 min-w-min"
+            [(ngModel)]="expenseName" />
+        <div class="form-control">
+            <label class="input-group input-group-xs">
+                <span>Amount</span>
+                <input type="number" placeholder="Type here" class="input input-bordered input-xs"
+                    [(ngModel)]="expenseValue" />
+                <span>INR</span>
+            </label>
+            <div style="margin-top: 10px;">
+                <dp-date-picker [(ngModel)]="selectedDate" [config]="datePickerConfig"></dp-date-picker>
+            </div>
+        </div>
+        <div class="card-actions">
+            <button class="btn btn-xs btn-info" (click)="submitExpense()">Submit</button>
+        </div>
+        <div *ngIf="loading">
+            <span class="loading loading-dots loading-lg"></span>
+        </div>
+    </div>
+</div>
+<div *ngIf="viewClicked && chartPrepared">
+<div class="container mx-auto bg-info-content rounded-box">
+    <h2>Expense chart for {{category}}</h2> 
+    <ngx-charts-bar-vertical (window:resize)="onResize($event)" [view]="view" [scheme]="colorScheme" [results]="single"
+        [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend"
+        [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel" (select)="onSelect($event)" style="fill:grey;">
+    </ngx-charts-bar-vertical>
+</div>
+</div>

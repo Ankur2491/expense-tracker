@@ -1,0 +1,31 @@
+ <!-- <div class="container">
+    <div class="grid grid-cols-12 gap-4 md:grid-cols-2 lg:grid-cols-4 sm:grid-cols-6 xs: grid-cols-2">
+    <button class="btn btn-xs btn-primary">Housing</button> 
+    <button class="btn btn-xs btn-secondary">Home Services</button>
+    <button class="btn btn-xs btn-accent">Utilities</button>
+    <button class="btn btn-xs btn-primary">Household Items</button> 
+    <button class="btn btn-xs btn-secondary">Food</button>
+    <button class="btn btn-xs btn-secondary">Clothing</button>
+    <button class="btn btn-xs btn-secondary">Personal Care</button>
+    <button class="btn btn-xs btn-secondary">Personal Development</button>
+    <button class="btn btn-xs btn-secondary">Recreation/Fun</button>
+    <button class="btn btn-xs btn-accent">Travel/Transportation</button>
+    <button class="btn btn-xs btn-accent">Technology</button>
+    <button class="btn btn-xs btn-accent">Medical/Health</button>
+    <button class="btn btn-xs btn-accent">Subscriptions/Streaming Services</button>
+    <button class="btn btn-xs btn-accent">Insurance</button>
+    <button class="btn btn-xs btn-accent">Gifts</button>
+    <button class="btn btn-xs btn-accent">Savings Goals / Investing</button>
+    <button class="btn btn-xs btn-accent">Debt Payments</button>
+    <button class="btn btn-xs btn-accent">Kids</button>
+    <button class="btn btn-xs btn-accent">Pets</button>
+ </div>
+</div> -->
+<div class="container mx-auto">
+<div class="grid">
+    <ng-container *ngFor="let cat of masterCategories; let i = index">
+        <button [ngClass]="i%3==0?'btn btn-xs btn-primary':i%3==1?'btn btn-xs btn-secondary':'btn btn-xs btn-accent'" (click)="expenseDetails(cat)">{{cat}}</button>
+    </ng-container>
+</div>
+<router-outlet></router-outlet>
+</div>
