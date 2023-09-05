@@ -1,6 +1,1 @@
-.grid {
-    display: grid;
-    grid-column-gap: 1ch;
-    row-gap: 1ch;
-    grid-template-columns: 1fr 1fr 1fr 1fr; /* Create 2 columns and auto-place rows */
-}
+
