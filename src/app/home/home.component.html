@@ -22,7 +22,7 @@
  </div>
 </div> -->
 <div class="container mx-auto">
-<div class="grid">
+<div class="grid grid-cols-2 gap-2">
     <ng-container *ngFor="let cat of masterCategories; let i = index">
         <button [ngClass]="i%3==0?'btn btn-xs btn-primary':i%3==1?'btn btn-xs btn-secondary':'btn btn-xs btn-accent'" (click)="expenseDetails(cat)">{{cat}}</button>
     </ng-container>
