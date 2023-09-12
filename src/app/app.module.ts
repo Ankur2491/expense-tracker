@@ -15,6 +15,7 @@ import {DpDatePickerModule} from 'ng2-date-picker';
 import { AddExpenseComponent } from './add-expense/add-expense.component';
 import { ViewExpenseComponent } from './view-expense/view-expense.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { ReminderDetailsComponent } from './reminder-details/reminder-details.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     ExpenseDetailsComponent,
     LoginComponent,
     AddExpenseComponent,
-    ViewExpenseComponent
+    ViewExpenseComponent,
+    ReminderDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,31 @@
+<div class="text-sm breadcrumbs">
+    <ul>
+        <li><a href="/home">Home</a></li>
+        <li>Add/View Reminders</li>
+    </ul>
+</div>
+<div class="card w-85 bg-info-content shadow-xl">
+    <div class="card-body">
+        <h2 class="card-title">Add a grocery reminder</h2>
+        <div class="container mx-auto">
+            <input type="text" [(ngModel)]= "miscellaneousText" placeholder="didn't find the thing? Enter here..." class="input input-bordered input-xs w-full max-w-xs"/>
+            <button class="btn btn-xs btn-accent" (click)="setReminder()">Set Reminder</button>
+        </div>
+        <div *ngIf="miscItems.length>0" class="container mx-auto">
+            <h2>Miscellaneous</h2>
+            <div *ngFor="let item of miscItems" class="badge badge-md badge-accent" (click)="removeMiscItem(item)">{{item}}</div>
+            <hr/>
+        </div>
+        <div class="container mx-auto">
+            <div *ngFor="let cat of masterCat">
+                <h2>{{cat}}</h2>
+                <div class="grid grid-cols-2 gap-2">
+                    <div *ngFor="let item of listOfData[cat]" [ngClass]="selectedItems.includes(item)?'badge badge-md badge-accent':'badge badge-primary'" (click)="selectItem(item)">{{item}}</div>
+                </div> 
+                <hr/>
+            </div>
+
+
+        </div>
+    </div>
+</div>

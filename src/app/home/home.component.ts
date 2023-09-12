@@ -22,4 +22,7 @@ constructor(private service: ExpenseService, private _router: Router, private _a
 expenseDetails(category: string) {
   this._router.navigate([`${category}/expense-details`], {'state': {'sub': this.allData[category]}});
 }
+openReminder() {
+  this._router.navigate(['reminder']);
+}
 }

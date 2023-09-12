@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/data.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { DataService } from 'src/data.service';
 export class AppComponent implements OnInit{
   title = 'exp-tracker';
   homeId = "";
-  constructor(private _router: Router, private _dataService: DataService){
+  constructor(private _router: Router, private _dataService: DataService, private _activatedRoute: ActivatedRoute){
     this._dataService.currentStatus.subscribe(data=>{
       if(data.length>0){
       this.homeId = data;
