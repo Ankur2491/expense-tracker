@@ -15,14 +15,14 @@ export class ReminderDetailsComponent{
   miscItems: any = [];
   miscellaneousText = "";
   constructor(private http: HttpClient, private toastr: ToastrService){
-    this.http.get("http://expense-tracker-api-rosy.vercel.app/groceryList").subscribe((data: any)=>{
+    this.http.get("https://expense-tracker-api-rosy.vercel.app/groceryList").subscribe((data: any)=>{
       this.masterCat = Object.keys(data.groceryList);
       this.allData = data.groceryList;
       for(let key of this.masterCat) {
         this.listOfData[key] = Object.keys(this.allData[key])
       }
     })
-    this.http.post("http://expense-tracker-api-rosy.vercel.app/getReminders", {homeId: localStorage.getItem('homeId')}).subscribe((data: any)=>{
+    this.http.post("https://expense-tracker-api-rosy.vercel.app/getReminders", {homeId: localStorage.getItem('homeId')}).subscribe((data: any)=>{
       console.log(data);
       if(data.hasOwnProperty("Message") && data["Message"]== "No Reminders"){
         this.selectedItems = [];
@@ -50,13 +50,13 @@ export class ReminderDetailsComponent{
     if(this.miscellaneousText.length>0){
       this.miscItems.push(this.miscellaneousText);
           if(this.selectedItems){
-            this.http.post("expense-tracker-api-rosy.vercel.app/updateReminder", {homeId: localStorage.getItem('homeId'), 'reminders': this.selectedItems, 'miscReminders': this.miscItems}).subscribe(data=>{
+            this.http.post("https://expense-tracker-api-rosy.vercel.app/updateReminder", {homeId: localStorage.getItem('homeId'), 'reminders': this.selectedItems, 'miscReminders': this.miscItems}).subscribe(data=>{
               this.toastr.success('Reminder Saved!');
             })
           }
     }
     else if(this.selectedItems){
-      this.http.post("expense-tracker-api-rosy.vercel.app/updateReminder", {homeId: localStorage.getItem('homeId'), 'reminders': this.selectedItems,'miscReminders': this.miscItems}).subscribe(data=>{
+      this.http.post("https://expense-tracker-api-rosy.vercel.app/updateReminder", {homeId: localStorage.getItem('homeId'), 'reminders': this.selectedItems,'miscReminders': this.miscItems}).subscribe(data=>{
         this.toastr.success('Reminder Saved!');
       })
     }
