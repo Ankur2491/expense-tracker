@@ -29,11 +29,11 @@ export class ReminderDetailsComponent{
       }
       else if(data.hasOwnProperty("miscReminders")){
         this.miscItems = data["miscReminders"];
-        this.selectedItems = data["Reminders"];
+        this.selectedItems = data["reminders"];
         
       }
       else{
-      this.selectedItems = data["Reminders"];
+      this.selectedItems = data["reminders"];
       }
     })
   }
