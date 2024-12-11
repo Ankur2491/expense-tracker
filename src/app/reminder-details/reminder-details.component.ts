@@ -52,6 +52,7 @@ export class ReminderDetailsComponent{
           if(this.selectedItems){
             this.http.post("https://expense-tracker-api-rosy.vercel.app/updateReminder", {homeId: localStorage.getItem('homeId'), 'reminders': this.selectedItems, 'miscReminders': this.miscItems}).subscribe(data=>{
               this.toastr.success('Reminder Saved!');
+              this.miscellaneousText="";
             })
           }
     }
